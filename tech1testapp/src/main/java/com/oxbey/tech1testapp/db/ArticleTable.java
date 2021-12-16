@@ -2,8 +2,7 @@ package com.oxbey.tech1testapp.db;
 
 import com.oxbey.tech1testapp.entities.ArticleEntity;
 import com.oxbey.tech1testapp.entities.Colour;
-import com.oxbey.tech1testapp.repositories.ArticleRepository;
-import com.oxbey.tech1testapp.services.impls.ArticleServiceImpl;
+import com.oxbey.tech1testapp.services.ArticleService;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -18,7 +17,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class ArticleTable implements CommandLineRunner {
 
     @Autowired
-    ArticleServiceImpl articleService;
+    ArticleService articleService;
     Random random = new Random();
 
     private Colour randomColor() {
@@ -34,8 +33,9 @@ public class ArticleTable implements CommandLineRunner {
             for (int i = 0; i < 40; i++) {
                 String text = RandomStringUtils.randomAlphabetic(20);
                 add(new ArticleEntity(text, randomColor()));
+
             }
         }};
-        articles.forEach((article -> articleService.addArticle(article, 1L)));
+        articles.forEach((article) -> articleService.addArticle(article, (long)(1+random.nextInt(10))));
     }
 }

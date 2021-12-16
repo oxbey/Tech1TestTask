@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Random;
 
 @Component
-public class UserTable implements CommandLineRunner {
+public class AaUserTable implements CommandLineRunner {
     @Autowired
     UserRepository userRepository;
 

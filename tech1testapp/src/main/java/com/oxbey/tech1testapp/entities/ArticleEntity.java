@@ -14,7 +14,7 @@ import javax.persistence.*;
 public class ArticleEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long articleId;
     private String text;
     @Enumerated(EnumType.STRING)
