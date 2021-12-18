@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @Entity
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,property = "articleId")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "articleId")
 public class ArticleEntity {
 
     @Id
@@ -18,13 +18,13 @@ public class ArticleEntity {
     private Long articleId;
     private String text;
     @Enumerated(EnumType.STRING)
-    private Colour color;
+    private Colour colour;
     @ManyToOne
     @JoinColumn(name = "user_userId")
     private UserEntity user;
 
-    public ArticleEntity(String text, Colour color) {
+    public ArticleEntity(String text, Colour colour) {
         this.text = text;
-        this.color = color;
+        this.colour = colour;
     }
 }

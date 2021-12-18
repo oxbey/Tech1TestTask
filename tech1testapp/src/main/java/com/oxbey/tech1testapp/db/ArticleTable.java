@@ -20,7 +20,7 @@ public class ArticleTable implements CommandLineRunner {
     ArticleService articleService;
     Random random = new Random();
 
-    private Colour randomColor() {
+    private Colour randomColour() {
         int length = Colour.values().length;
         Colour[] values = Colour.values();
         int temp = ThreadLocalRandom.current().nextInt(length);
@@ -32,7 +32,7 @@ public class ArticleTable implements CommandLineRunner {
         List<ArticleEntity> articles = new ArrayList<>(){{
             for (int i = 0; i < 40; i++) {
                 String text = RandomStringUtils.randomAlphabetic(20);
-                add(new ArticleEntity(text, randomColor()));
+                add(new ArticleEntity(text, randomColour()));
 
             }
         }};

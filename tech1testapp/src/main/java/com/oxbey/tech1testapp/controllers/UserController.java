@@ -18,15 +18,27 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @GetMapping("/addUser")
-    public ResponseEntity<UserEntity> saveUser(@RequestBody UserEntity user){
-       UserEntity userEntity = userService.add(user);
-       return new ResponseEntity<>(userEntity, HttpStatus.CREATED);
+    @PostMapping("/addUser")
+    public ResponseEntity<UserEntity> saveUser(@RequestBody UserEntity user) {
+        UserEntity userEntity = userService.add(user);
+        return new ResponseEntity<>(userEntity, HttpStatus.CREATED);
     }
 
     @GetMapping("/overage/{age}")
-    public ResponseEntity<List<UserEntity>> findAllByAgeAfter(@PathVariable int age){
+    public ResponseEntity<List<UserEntity>> getAllUsersByAgeAfter(@PathVariable int age) {
         List<UserEntity> userEntityList = userService.findAllByAgeAfter(age);
         return new ResponseEntity<>(userEntityList, HttpStatus.OK);
+    }
+
+    @GetMapping("/getUserByArticleColour/{colour}")
+    public ResponseEntity<List<UserEntity>> getAllUsersByColour(@PathVariable String colour) {
+        List<UserEntity> users = userService.findAllByArticlesColour(colour);
+        return new ResponseEntity<>(users, HttpStatus.OK);
+    }
+
+    @GetMapping("/getUserWithArticlesCountGreater/{count}")
+    public ResponseEntity<List<String>> getAllUsersWithArticlesCountGreater(@PathVariable int count) {
+        List<String> users = userService.findAllWithArticlesCountGreater(count);
+        return new ResponseEntity<>(users, HttpStatus.OK);
     }
 }

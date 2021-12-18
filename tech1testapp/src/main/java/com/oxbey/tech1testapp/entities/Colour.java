@@ -1,27 +1,16 @@
 package com.oxbey.tech1testapp.entities;
 
-import lombok.Data;
-
-import java.util.Random;
-
 public enum Colour {
-    RED ("red"),
-    BLACK ("black"),
-    YELLOW("yellow"),
-    WHITE ("white"),
-    GREEN("green"),
-    BLUE ("blue");
+    RED("RED"),
+    BLACK("BLACK"),
+    YELLOW("YELLOW"),
+    WHITE("WHITE"),
+    GREEN("GREEN"),
+    BLUE("BLUE");
+    String name;
 
-    String currency;
-
-    Colour(String currency) {
-        this.currency = currency;
+    Colour(String name) {
+        this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "Colour{" +
-                "currency='" + currency + '\'' +
-                '}';
-    }
 }
