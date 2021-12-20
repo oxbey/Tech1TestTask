@@ -1,0 +1,151 @@
+{
+	"info": {
+		"_postman_id": "25e451a6-2f6e-411b-980c-d4445762a08f",
+		"name": "UsersAndArticles",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User Save",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Andriy\",\r\n    \"age\" : 28\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/users/addUser",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"addUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Article Save",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"text\": \"asfsgfs111sfsdfsdf\",\r\n    \"colour\" : \"RED\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/articles/addArticle?userId=5",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"articles",
+						"addArticle"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Users names which articles count greater than",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/users/getUserWithArticlesCountGreater/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"getUserWithArticlesCountGreater",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Users Articles with specific colour",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/users/getUserByArticleColour/RED",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"getUserByArticleColour",
+						"RED"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Articles with specefic colour",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/articles/getByColor/RED",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"articles",
+						"getByColor",
+						"RED"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Users older than",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/users/overage/50",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"overage",
+						"50"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
