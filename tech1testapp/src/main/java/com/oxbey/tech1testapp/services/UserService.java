@@ -46,4 +46,8 @@ public class UserService {
                 .collect(Collectors.toList());
         return usersList;
     }
+
+    public String printSomeData(String data){
+        return data;
+    }
 }
